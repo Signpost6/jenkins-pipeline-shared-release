@@ -23,6 +23,10 @@ def call(body) {
     def manifestReader = new ReleaseManifestReader();
 
     manifestReader.read(
-            new ReadManifestOptions(gitUrl: 'git@github.com:Signpost6/jenkins-example-java-project.git'))
+            new ReadManifestOptions(
+                    gitUrl: 'git@github.com:Signpost6/jenkins-example-java-project.git',
+                    tempPath: "${env.workspace}/.tmp"
+            )
+    )
 
 }
