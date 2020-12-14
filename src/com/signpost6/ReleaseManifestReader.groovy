@@ -9,10 +9,11 @@ import org.eclipse.jgit.api.Git
 class ReleaseManifestReader {
 
     static ReleaseManifest read(ReadManifestOptions args) {
-        def tmp = ".tmp";
-        FileUtils.forceMkdir(new File(tmp))
+        def tmp = "${env.workspace}/.tmp"
 
         println "Cloning ${args.gitUrl} into ${tmp}"
+
+        FileUtils.forceMkdir(new File(tmp))
 
         //checkout the git repo containing the release manifest
         Git git = Git.cloneRepository()
