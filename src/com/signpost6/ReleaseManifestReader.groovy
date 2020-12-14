@@ -18,7 +18,7 @@ class ReleaseManifestReader {
         //checkout the git repo containing the release manifest
         Git git = Git.cloneRepository()
                 .setURI(args.gitUrl)
-                .setDirectory(args.tempPath)
+                .setDirectory(tmpFile)
                 .call();
 
         def slurper = new JsonSlurper()
