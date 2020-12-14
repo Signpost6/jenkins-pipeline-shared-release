@@ -1,5 +1,5 @@
-import com.signpost6.ReadManifestOptions
 import com.signpost6.ReleaseManifestReader
+import com.signpost6.model.ReadManifestOptions
 
 /**
  * Determines the current maven version of the project

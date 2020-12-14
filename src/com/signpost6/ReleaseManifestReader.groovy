@@ -1,5 +1,6 @@
 package com.signpost6
 
+import com.signpost6.model.ReadManifestOptions
 import com.signpost6.model.ReleaseManifest
 import groovy.json.JsonSlurper
 import org.apache.commons.io.FileUtils
@@ -25,9 +26,4 @@ class ReleaseManifestReader {
 
     }
 
-}
-
-class ReadManifestOptions {
-    String manifest = "manifest.json"
-    String gitUrl
 }
