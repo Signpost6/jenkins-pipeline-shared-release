@@ -23,6 +23,7 @@ def call(body) {
     def manifestReader = new ReleaseManifestReader();
 
     def creds = credentials('github')
+    def key = ""
 
     withCredentials(
             [sshUserPrivateKey(
@@ -31,7 +32,10 @@ def call(body) {
                     usernameVariable: 'TMP_SSH_USERNAME')]
     ) {
         println "key = ${TMP_SSH_KEY}"
+        key = "${TMP_SSH_KEY}"
     }
+
+    println "key = ${key}"
 
     manifestReader.read(
             new ReadManifestOptions(
