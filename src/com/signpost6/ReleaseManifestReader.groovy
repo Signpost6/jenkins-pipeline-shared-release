@@ -11,13 +11,14 @@ class ReleaseManifestReader {
     ReleaseManifest read(ReadManifestOptions args) {
 
         println "Cloning ${args.gitUrl} into ${args.tempPath}"
-
-        FileUtils.forceMkdir(new File(args.tempPath))
+        def tmpFile = new File(args.tempPath)
+        FileUtils.forceDelete(tmpFile)
+        FileUtils.forceMkdir(tmpFile)
 
         //checkout the git repo containing the release manifest
         Git git = Git.cloneRepository()
                 .setURI(args.gitUrl)
-                .setDirectory(tmp)
+                .setDirectory(args.tempPath)
                 .call();
 
         def slurper = new JsonSlurper()
