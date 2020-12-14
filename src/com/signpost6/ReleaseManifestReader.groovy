@@ -8,7 +8,7 @@ import org.eclipse.jgit.api.Git
 
 class ReleaseManifestReader {
 
-    static ReleaseManifest read(ReadManifestOptions args) {
+    ReleaseManifest read(ReadManifestOptions args) {
         def tmp = "${env.workspace}/.tmp"
 
         println "Cloning ${args.gitUrl} into ${tmp}"

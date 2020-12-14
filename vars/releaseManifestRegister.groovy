@@ -20,8 +20,9 @@ def call(body) {
         body.delegate = config
         body()
     }
+    def manifestReader = new ReleaseManifestReader();
 
-    ReleaseManifestReader.read(
+    manifestReader.read(
             new ReadManifestOptions(gitUrl: 'git@github.com:Signpost6/jenkins-example-java-project.git'))
 
 }
